@@ -55,22 +55,57 @@ public class _01_StringMethods {
     // You cannot assume there are no extra spaces around the name, but you can
     // assume there is only one space between the first and last name
     public static String lineLeader(String s1, String s2, String s3) {
+    	s1 = s1.trim();
+    	s2 = s2.trim();
+    	s3 = s3.trim();
     	
-        return null;
+    	int one = s1.indexOf(" ") +1 ;
+    	int two = s2.indexOf(" ")+1;
+    	int three = s3.indexOf(" ") +1;
+    	
+    	if(s1.charAt(one) < s2.charAt(two)) {
+    		if(s1.charAt(one) < s3.charAt(three)) {
+    			return s1;
+    		}
+    	}
+    	if(s2.charAt(two) < s1.charAt(one)) {
+    		if(s2.charAt(two) < s3.charAt(three)) {
+    			return s2;
+    		}
+    	}
+    	
+    	
+        return s3;
     }
 
     // Return the sum of all numerical digits in the String
     public static int numeralSum(String s) {
-        return 0;
+    	int sum = 0;
+    	if(Character.isDigit(s.charAt(2)) == true) {
+    		
+    	}
+    	
+		
+    	
+        
+		return sum;
     }
 
     // Return the number of times String substring appears in String s
     public static int substringCount(String s, String substring) {
-        return 0;
+    	
+    	 int numOccurances = 0;
+    	String removedSubstring = s.replace(substring, "");
+        numOccurances = (s.length() - removedSubstring.length()) / substring.length();
+    	
+        return numOccurances;
     }
 
     // Call Utilities.encrypt at the bottom of this file to encrypt String s
     public static String encrypt(String s, char key) {
+    	
+    	
+    	
         return null;
     }
 
