@@ -81,9 +81,14 @@ public class _01_StringMethods {
     // Return the sum of all numerical digits in the String
     public static int numeralSum(String s) {
     	int sum = 0;
-    	if(Character.isDigit(s.charAt(2)) == true) {
-    		
+    	for (int i = 0; i < s.length(); i++) {
+			if(Character.isDigit(s.charAt(i)) == true) {
+    		char x = s.charAt(i);
+    		int num = Character.getNumericValue(x);
+    		sum +=num;
     	}
+		}
+    	
     	
 		
     	 
@@ -106,32 +111,71 @@ public class _01_StringMethods {
     	
     	
     	
-        return null;
+        return Utilities.encrypt(s.getBytes(), (byte) key);
     }
 
     // Call Utilities.decrypt at the bottom of this file to decrypt the
     // cyphertext (encrypted text)
     public static String decrypt(String s, char key) {
-        return null;
+    	
+    	
+    	return Utilities.decrypt(s, (byte) key);
+        
     }
 
     // Return the number of words in String s that end with String substring
     // You can assume there are no punctuation marks between words
     public static int wordsEndsWithSubstring(String s, String substring) {
-        return 0;
+    	int num = 0;
+    	String l = s + " ";
+    	char h = ' ';
+    	for (int i = 0; i < s.length()-substring.length(); i++) {
+    		String b = s.substring(i, i+substring.length());
+    		if(s.charAt(i+substring.length()+1) == (h)) {
+    			b = b + " ";
+			if(b.equals(substring) ){
+				num +=1;
+			}
+    		}
+    		
+		}
+    		
+    	
+        return num;
     }
 
     // Given String s, return the number of characters between the first
     // occurrence of String substring and the final occurrence
     // You can assume that substring will appear at least twice
     public static int distance(String s, String substring) {
-        return 0;
+    	
+    	int x = s.indexOf(substring);
+    	int y = s.lastIndexOf(substring);
+        return y-x-substring.length();
     }
 
     // Return true if String s is a palindrome
     // palindromes are words or phrases are read the same forward as backward.
     // HINT: ignore/remove all punctuation and spaces in the String
     public static boolean palindrome(String s) {
+    	
+    	String z = s;
+    	String y = "";
+    	for (int i = 0; i < z.length(); i++) {
+			char x = z.charAt(i);
+			if(Character.isLetter(x) == true) {
+				
+				y = y + Character.toLowerCase(x);
+			}
+		}
+    	System.out.println(y);
+    	
+    	for (int i = 0; i < y.length()/2; i++) {
+			if(y.charAt(i) != y.charAt(y.length()-1-i)) {
+				return false;
+			}
+		}
+		
         return true;
     }
 }
