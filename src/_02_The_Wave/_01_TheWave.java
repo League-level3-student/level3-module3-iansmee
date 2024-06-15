@@ -21,6 +21,23 @@ public class _01_TheWave {
     
     public static ArrayList<String> wave(String str) {
         
-        return null;
+    	ArrayList<String> l = new ArrayList<String>();
+    	
+    	StringBuilder builder = new StringBuilder(str);
+    	
+    	for (int i = 0; i < str.length(); i++) {
+    		char a = str.charAt(i);
+    		if(Character.isLetter(a)) {
+    			builder.setCharAt(i, Character.toUpperCase(a));
+			l.add(builder.toString());
+			System.out.println(builder.toString());
+			builder.setCharAt(i, Character.toLowerCase(a));
+    		}
+    		else {
+    			continue;
+    		}
+		}
+    	
+        return l;
     }
 }
